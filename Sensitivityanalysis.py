@@ -8,6 +8,7 @@ Created on Wed Jun  3 14:40:04 2020
 import numpy as np
 import csv
 from optimize import optimizepy
+from optimize_gurobi import optimizegurobipy
 from main import sensitivityanalysis
 ######### Sensitivity analysis verhouding weights ###########
 
@@ -15,7 +16,7 @@ fuel_weight = 5
 Noiselist = []
 Fuelburnlist = []
 Ratio = []
-for noise_weight in np.arange(0.1,1,10):
+for noise_weight in np.arange(0.1,10,1):
     sensitivityanalysis(fuel_weight, noise_weight, 1)
     optimizepy()
     with open('model.sol', newline='\n') as csvfile:
